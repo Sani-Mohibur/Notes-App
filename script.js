@@ -7,7 +7,7 @@ const notesContainer = document.querySelector('#notesContainer');
 addNoteButton.addEventListener('click', function(){
     const noteText = noteInput.value.trim();
 
-    if(noteText == "" || noteText.length > 50){
+    if(noteText == ""){
         alert("Please enter a note within 15 characters");
         
     } else{
@@ -43,4 +43,34 @@ addNoteButton.addEventListener('click', function(){
 
         });
     }
+});
+
+let mode = document.querySelector('#mode');
+let body = document.querySelector('body');
+
+//Function to update tooltip text
+function updateTooltip(){
+    if (body.classList.contains("dark")){
+        mode.setAttribute("data-tooltip", "Dark Mode");
+    }
+    else{
+        mode.setAttribute("data-tooltip", "Light Mode");
+    }
+}
+
+//Set initial tooltip
+updateTooltip();
+
+mode.addEventListener("click", ()=>{
+    if (body.classList.contains("dark")){
+        body.classList.remove("dark");
+        body.classList.add("light");
+    }
+    else{       
+        body.classList.remove("light");
+        body.classList.add("dark");
+    }
+
+    //Update tooltip after mode change
+    updateTooltip();
 });
