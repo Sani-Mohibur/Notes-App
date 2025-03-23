@@ -8,7 +8,7 @@ addNoteButton.addEventListener('click', function(){
     const noteText = noteInput.value.trim();
 
     if(noteText == ""){
-        alert("Please enter a note within 15 characters");
+        alert("Please enter your note");
         
     } else{
         //Create a new note div
